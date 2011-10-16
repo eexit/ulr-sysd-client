@@ -1,10 +1,11 @@
-# Projet M2 ICONE Système de Diffusion #
+# Projet M2 ICONE Système de Diffusion — 1.00-DEV#
 
 Ce dépôt contient le client SOAP de notre application XML/XSL/WebService. Le serveur applicatif devant être écrit en Java,
 le langage du client n'était pas imposé donc PHP fût choisi.
 Ce projet utilise Symfony Console et Soap Client de Zend Framework 2.
 
 ## Pré-requis ##
+
  * >= PHP 5.3.3
  * SOAP PHP extension
 
