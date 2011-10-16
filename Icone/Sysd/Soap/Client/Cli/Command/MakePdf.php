@@ -79,6 +79,7 @@ class MakePdf extends Console\Command\Command
         } catch (\SoapFault $e) {
             $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
             $output->writeln(sprintf('Error message: %s%s', $e->getMessage(), PHP_EOL));
+            //var_dump($e);
             exit(1);
         }
     }

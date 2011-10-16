@@ -56,7 +56,13 @@ class Post extends Console\Command\Command
             $obj->data = file_get_contents($file);
             
             $response = $client->depotDocument($obj);
-            $output->writeln($response->return);
+            
+            if (0 > $response->return) {
+                $output->writeln(sprintf('%s<error>The subitted XML file is not valid!</error>%s', PHP_EOL, PHP_EOL));
+                exit(1);
+            }
+            
+            $output->writeln(sprintf('%sDocument successfully hosted with ID : %d%s', PHP_EOL, $response->return, PHP_EOL));
             $output->writeln('<info>Operation succeed!</info>');
         } catch (\SoapFault $e) {
             $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
