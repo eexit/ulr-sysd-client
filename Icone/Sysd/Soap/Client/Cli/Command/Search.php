@@ -38,12 +38,27 @@ class Search extends Console\Command\Command
     {
         $keywords = $input->getOption('keywords');
         
-        /*
-            TODO 
-        */
-        //$ws = Client::getWebService();
-        
-        $output->writeln('Submitted kws: ' . $keywords);
+        try {
+            $client = Client::getWebService();
+            
+            /*
+            $obj = new \stdClass();
+            $obj->id = $id;
+            $obj->XSLfo = file_get_contents($xsl);
+            
+            $response = $client->generePDF($obj);
+            if (is_null($response->return)) {
+                $output->writeln(sprintf('%s<error>No XML file is matching ID "%d" on the server.</error>%s', PHP_EOL, $id, PHP_EOL));
+            }
+            
+            file_put_contents($out, $response->return);
+            $output->writeln(sprintf('%s<info>%s was successfully created!</info>%s', PHP_EOL, $out, PHP_EOL));
+            */
+        } catch (\SoapFault $e) {
+            $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
+            $output->writeln(sprintf('Error message: %s%s', $e->getMessage(), PHP_EOL));
+            exit(1);
+        }
     }
 }
 ?>

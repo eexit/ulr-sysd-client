@@ -36,7 +36,8 @@ class Post extends Console\Command\Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $file = $input->getArgument('xml');
+        $file = $input->getOption('xml');
+        
         if (!is_file($file)) {
             $output->writeln(sprintf('%s<error>Given argument is not a file!</error>%s', PHP_EOL, PHP_EOL));
             exit(1);
@@ -47,14 +48,21 @@ class Post extends Console\Command\Command
             exit(1);
         }
         
-        /*
-            TODO 
-        */
-        //$ws = Client::getWebService();
-        //$ws->depot(file_get_contents($file));
-        
-        
-        $output->writeln('<green>Operation succeed!</green>');
+        try {
+            $client = Client::getWebService();
+            
+            $obj = new \stdClass();
+            $obj->name = basename($file);
+            $obj->data = file_get_contents($file);
+            
+            $response = $client->depotDocument($obj);
+            $output->writeln($response->return);
+            $output->writeln('<info>Operation succeed!</info>');
+        } catch (\SoapFault $e) {
+            $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
+            $output->writeln(sprintf('Error message: %s%s', $e->getMessage(), PHP_EOL));
+            exit(1);
+        }
     }
 }
 ?>
