@@ -10,8 +10,20 @@ use Symfony\Component\Console;
 
 use Icone\Sysd\Soap\Client\Cli\Client;
 
+/**
+ * Icone\Sysd\Soap\Client\Cli\Command\Get
+ * 
+ * @category Icone
+ * @package Icone\Sysd
+ * @subpackage Soap\Client\Cli\Command
+ * @copyright Copyright (c) 2011, Joris Berthelot
+ * @author Joris Berthelot <joris.berthelot@gmail.com>
+ */
 class MakePdf extends Console\Command\Command
 {
+    /**
+     * Command declaration
+     */
     protected function configure()
     {
         $this->setName('makepdf')
@@ -20,6 +32,9 @@ class MakePdf extends Console\Command\Command
              ->addOption('out', null, InputOption::VALUE_REQUIRED, 'PDF output filename');
     }
     
+    /**
+     * Command business code
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $id = $input->getOption('id');

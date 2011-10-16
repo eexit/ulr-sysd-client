@@ -10,8 +10,20 @@ use Symfony\Component\Console;
 
 use Icone\Sysd\Soap\Client\Cli\Client;
 
+/**
+ * Icone\Sysd\Soap\Client\Cli\Command\Get
+ * 
+ * @category Icone
+ * @package Icone\Sysd
+ * @subpackage Soap\Client\Cli\Command
+ * @copyright Copyright (c) 2011, Joris Berthelot
+ * @author Joris Berthelot <joris.berthelot@gmail.com>
+ */
 class Search extends Console\Command\Command
 {
+    /**
+     * Command declaration
+     */
     protected function configure()
     {
         $this->setName('search')
@@ -19,6 +31,9 @@ class Search extends Console\Command\Command
              ->addOption('keywords', null, InputOption::VALUE_REQUIRED, 'Keywords (comma separated)');
     }
     
+    /**
+     * Command business code
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $keywords = $input->getOption('keywords');
