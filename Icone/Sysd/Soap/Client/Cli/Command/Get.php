@@ -57,12 +57,14 @@ class Get extends Console\Command\Command
             $obj->id = $id;
             
             $response = $client->retourneDocument($obj);
+            
             if (is_null($response->return)) {
                 $output->writeln(sprintf('%s<error>No XML file is matching ID "%d" on the server.</error>%s', PHP_EOL, $id, PHP_EOL));
             }
             
             file_put_contents($out, $response->return);
             $output->writeln(sprintf('%s<info>%s was successfully created!</info>%s', PHP_EOL, $out, PHP_EOL));
+            
         } catch (\SoapFault $e) {
             $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
             $output->writeln(sprintf('Error message: %s%s', $e->getMessage(), PHP_EOL));

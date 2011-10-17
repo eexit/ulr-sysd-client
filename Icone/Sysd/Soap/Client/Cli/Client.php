@@ -22,7 +22,7 @@ class Client extends Application
      */
     public function __construct()
     {
-        parent::__construct('SOAP Client application developped by Joris Berthelot (c) 2011', '1.00-DEV');
+        parent::__construct('PHP-CLI SOAP Client application developped by Joris Berthelot (c) 2011', '1.00-DEV');
         $this->setCatchExceptions(false);
         
         // Declares application commands

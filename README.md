@@ -28,9 +28,9 @@ Chercher un/des document(s) par mot-clé(s) :
 
     app/client search --keywords="foo, bar, baz yx"
 
-Générer un document PDF à partir de son identifiant :
+Générer un document PDF à partir de son identifiant et de sa feuille de transformation :
 
-    app/client makepdf --id=1 --out=fichier.pdf
+    app/client makepdf --id=1 --xsl=transformer.xsl --out=fichier.pdf
 
 ## Infos ##
 Copyright (c) 2011, Joris Berthelot

@@ -64,6 +64,7 @@ class Post extends Console\Command\Command
             
             $output->writeln(sprintf('%sDocument successfully hosted with ID : %d%s', PHP_EOL, $response->return, PHP_EOL));
             $output->writeln('<info>Operation succeed!</info>');
+            
         } catch (\SoapFault $e) {
             $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
             $output->writeln(sprintf('Error message: %s%s', $e->getMessage(), PHP_EOL));

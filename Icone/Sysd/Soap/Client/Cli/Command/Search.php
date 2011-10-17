@@ -54,10 +54,13 @@ class Search extends Console\Command\Command
             
             $results = explode(',', $results);
             $output->writeln(sprintf('%s%d result(s) found for keywords "%s"%s', PHP_EOL, count($results), $keywords, PHP_EOL));
+            
             foreach ($results as $result) {
                 $output->writeln(sprintf('%s', trim($result)));
             }
+            
             $output->writeln(sprintf('%s<info>To pull a document, use "client get --id=DOC_ID --out=doc.xml".</info>%s', PHP_EOL, PHP_EOL));
+            
         } catch (\SoapFault $e) {
             $output->writeln(sprintf('%s<error>An error occured!</error>%s', PHP_EOL, PHP_EOL));
             $output->writeln(sprintf('Error message: %s%s', $e->getMessage(), PHP_EOL));
