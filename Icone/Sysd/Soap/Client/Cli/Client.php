@@ -37,7 +37,7 @@ class Client extends Application
     /**
      * WebService provider
      */
-    public static function getWebService($wsdl = 'http://eexit.local:8080/ulr-sysd/NewWebService?wsdl')
+    public static function getWebService($wsdl = 'http://localhost:8080/ulr-sysd/NewWebService?wsdl')
     {
         return new ZClient($wsdl, $options = array(
             'soap_version'  => SOAP_1_1,
