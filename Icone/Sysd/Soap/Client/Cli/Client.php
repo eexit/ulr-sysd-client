@@ -22,7 +22,7 @@ class Client extends Application
      */
     public function __construct()
     {
-        parent::__construct('PHP-CLI SOAP Client application developped by Joris Berthelot (c) 2011', '1.00-DEV');
+        parent::__construct('PHP-CLI SOAP Client application developped by Joris Berthelot (c) 2011', '1.00');
         $this->setCatchExceptions(false);
         
         // Declares application commands
@@ -37,7 +37,7 @@ class Client extends Application
     /**
      * WebService provider
      */
-    public static function getWebService($wsdl = 'http://localhost:8080/ulr-sysd/NewWebService?wsdl')
+    public static function getWebService($wsdl = 'http://localhost:8080/DocumentManager?wsdl')
     {
         return new ZClient($wsdl, $options = array(
             'soap_version'  => SOAP_1_1,

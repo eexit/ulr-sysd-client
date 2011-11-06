@@ -1,4 +1,4 @@
-# Projet M2 ICONE Système de Diffusion — 1.00-DEV#
+# Projet M2 ICONE Système de Diffusion — 1.00#
 
 Ce dépôt contient le client SOAP de notre application XML/XSL/WebService. Le serveur applicatif devant être écrit en Java,
 le langage du client n'était pas imposé donc PHP fût choisi.
