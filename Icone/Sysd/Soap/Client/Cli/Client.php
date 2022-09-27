@@ -8,12 +8,11 @@ use Zend\Soap\Client as ZClient;
 
 /**
  * Icone\Sysd\Soap\Client\Cli\Client
- * 
+ *
  * @category Icone
  * @package Icone\Sysd
  * @subpackage Soap\Client\Cli
  * @copyright Copyright (c) 2011, Joris Berthelot
- * @author Joris Berthelot <joris.berthelot@gmail.com>
  */
 class Client extends Application
 {
@@ -24,7 +23,7 @@ class Client extends Application
     {
         parent::__construct('PHP-CLI SOAP Client application developped by Joris Berthelot (c) 2011', '1.00');
         $this->setCatchExceptions(false);
-        
+
         // Declares application commands
         $this->addCommands(array(
             new Command\Get(),
@@ -33,7 +32,7 @@ class Client extends Application
             new Command\MakePdf()
         ));
     }
-    
+
     /**
      * WebService provider
      */
@@ -45,5 +44,3 @@ class Client extends Application
         ));
     }
 }
-
-?>
