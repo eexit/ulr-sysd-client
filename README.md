@@ -35,6 +35,6 @@ Générer un document PDF à partir de son identifiant et de sa feuille de trans
 ## Infos ##
 Copyright (c) 2011, Joris Berthelot
 
-Joris Berthelot <joris.berthelot@gmail.com>
+Joris Berthelot
 
 Projet développé en une après-midi.
